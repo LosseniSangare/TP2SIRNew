@@ -1,3 +1,441 @@
-/*C1*/SET SCHEMA SYSTEM_LOBS
-INSERT INTO BLOCKS VALUES(0,2147483647,0)
+/*C69*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, section_id bigint, primary key (id))
+create table Section (id bigint not null, libelle varchar(255), primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), fiche_id bigint, primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Url add constraint FK64davox5fbwyo2d7xvptj1fig foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
+DISCONNECT
+/*C70*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url_hash CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, section_id bigint, primary key (id))
+create table Section (id bigint not null, libelle varchar(255), primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url_hash (id integer not null, lien varchar(255), fiche_id bigint, primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Url_hash add constraint FKkh1w234i6fjpk1o4o7gj7vv1i foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C71*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url_hash CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, section_id bigint, primary key (id))
+create table Section (id bigint not null, libelle varchar(255), primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url_hash (id integer not null, lien varchar(255), fiche_id bigint, primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Url_hash add constraint FKkh1w234i6fjpk1o4o7gj7vv1i foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C72*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C74*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C75*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, section_id bigint, primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), fiche_id bigint, primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Url add constraint FK64davox5fbwyo2d7xvptj1fig foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C68*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, section_id bigint, primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), fiche_id bigint, primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), fiche_id bigint, primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Hash_git add constraint FKbpm3d2on9qah408ux466k4b3x foreign key (fiche_id) references Fiche
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Url add constraint FK64davox5fbwyo2d7xvptj1fig foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, hash_git_id integer, section_id bigint, url_id integer, primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, hash_git_id integer, section_id bigint, url_id integer, primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, hash_git_id integer, section_id bigint, url_id integer, primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C88*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Url CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, hash_git_id integer, section_id bigint, url_id integer, utilisateur_email varchar(255), primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+create table Utilisateur (email varchar(255) not null, nom varchar(255), primary key (email))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Fiche add constraint FKlehcd4y2kgdg768lg7cj9rwdr foreign key (utilisateur_email) references Utilisateur
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Tag_fiche CASCADE 
+drop table if exists Url CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, hash_git_id integer, section_id bigint, tag_fiche_id integer, url_id integer, utilisateur_email varchar(255), primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, tag_fiche_id integer, primary key (id))
+create table Tag_fiche (id integer not null, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+create table Utilisateur (email varchar(255) not null, nom varchar(255), primary key (email))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FKgmadm6o2ntsbb44ragkog6hx7 foreign key (tag_fiche_id) references Tag_fiche
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Fiche add constraint FKlehcd4y2kgdg768lg7cj9rwdr foreign key (utilisateur_email) references Utilisateur
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Tag add constraint FKcolibgr0a5r15tn6pq6jtupue foreign key (tag_fiche_id) references Tag_fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Tag_fiche CASCADE 
+drop table if exists Url CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (fiche_type varchar(31) not null, id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, source varchar(255), hash_git_id integer, section_id bigint, tag_fiche_id integer, url_id integer, utilisateur_email varchar(255), primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, tag_fiche_id integer, primary key (id))
+create table Tag_fiche (id integer not null, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+create table Utilisateur (email varchar(255) not null, nom varchar(255), primary key (email))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FKgmadm6o2ntsbb44ragkog6hx7 foreign key (tag_fiche_id) references Tag_fiche
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Fiche add constraint FKlehcd4y2kgdg768lg7cj9rwdr foreign key (utilisateur_email) references Utilisateur
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Tag add constraint FKcolibgr0a5r15tn6pq6jtupue foreign key (tag_fiche_id) references Tag_fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Tag_fiche CASCADE 
+drop table if exists Url CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Fiche (fiche_type varchar(31) not null, id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, source varchar(255), fonctionnalite varchar(255), hash_git_id integer, section_id bigint, tag_fiche_id integer, url_id integer, utilisateur_email varchar(255), primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, tag_fiche_id integer, primary key (id))
+create table Tag_fiche (id integer not null, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+create table Utilisateur (email varchar(255) not null, nom varchar(255), primary key (email))
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FKgmadm6o2ntsbb44ragkog6hx7 foreign key (tag_fiche_id) references Tag_fiche
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Fiche add constraint FKlehcd4y2kgdg768lg7cj9rwdr foreign key (utilisateur_email) references Utilisateur
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Tag add constraint FKcolibgr0a5r15tn6pq6jtupue foreign key (tag_fiche_id) references Tag_fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+drop table if exists Bug CASCADE 
+drop table if exists Department CASCADE 
+drop table if exists Employee CASCADE 
+drop table if exists Features_request CASCADE 
+drop table if exists Fiche CASCADE 
+drop table if exists Hash_git CASCADE 
+drop table if exists Kamban CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Tag_fiche CASCADE 
+drop table if exists Url CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Bug (source varchar(255), id bigint not null, primary key (id))
+create table Department (id bigint not null, name varchar(255), primary key (id))
+create table Employee (id bigint not null, name varchar(255), department_id bigint, primary key (id))
+create table Features_request (fonctionnalite varchar(255), id bigint not null, primary key (id))
+create table Fiche (fiche_type varchar(31) not null, id bigint not null, date date, libelle varchar(255), note varchar(255), temps date, hash_git_id integer, section_id bigint, tag_fiche_id integer, url_id integer, utilisateur_email varchar(255), primary key (id))
+create table Hash_git (id integer not null, lien varchar(255), primary key (id))
+create table Kamban (id bigint not null, libelle varchar(255), primary key (id))
+create table Section (id bigint not null, libelle varchar(255), kamban_id bigint, primary key (id))
+create table Tag (id integer not null, libelle varchar(255), fiche_id bigint, tag_fiche_id integer, primary key (id))
+create table Tag_fiche (id integer not null, primary key (id))
+create table Url (id integer not null, lien varchar(255), primary key (id))
+create table Utilisateur (email varchar(255) not null, nom varchar(255), primary key (email))
+alter table Bug add constraint FKlwcfxvi5fw3lqcavlg2c1qir4 foreign key (id) references Fiche
+alter table Employee add constraint FK14tijxqry9ml17nk86sqfp561 foreign key (department_id) references Department
+alter table Features_request add constraint FK4x64167fmeb9x39uppky9rxjp foreign key (id) references Fiche
+alter table Fiche add constraint FK9hmtuwbtep01eqyovat9ekah9 foreign key (hash_git_id) references Hash_git
+alter table Fiche add constraint FKhku82603voqbyxsomrlihpeuq foreign key (section_id) references Section
+alter table Fiche add constraint FKgmadm6o2ntsbb44ragkog6hx7 foreign key (tag_fiche_id) references Tag_fiche
+alter table Fiche add constraint FK6bgh50wdji2s0qu6hyfhm568w foreign key (url_id) references Url
+alter table Fiche add constraint FKlehcd4y2kgdg768lg7cj9rwdr foreign key (utilisateur_email) references Utilisateur
+alter table Section add constraint FKkwdh01cfarnu51h93iyhtli5x foreign key (kamban_id) references Kamban
+alter table Tag add constraint FKmulq3uy0ifjfudj6hldmawslq foreign key (fiche_id) references Fiche
+alter table Tag add constraint FKcolibgr0a5r15tn6pq6jtupue foreign key (tag_fiche_id) references Tag_fiche
+INSERT INTO DEPARTMENT VALUES(1,'java')
+INSERT INTO EMPLOYEE VALUES(2,'Jakab Gipsz',1)
+INSERT INTO EMPLOYEE VALUES(3,'Captain Nemo',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+DISCONNECT

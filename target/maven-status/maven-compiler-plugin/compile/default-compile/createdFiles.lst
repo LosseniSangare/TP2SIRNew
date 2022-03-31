@@ -1,2 +1,11 @@
+domain/Department.class
+kamban/Tag.class
+servlet/UserInfo.class
+kamban/Url.class
+domain/Employee.class
+kamban/Fiche.class
+servlet/MyServlet.class
+kamban/Kamban.class
 jpa/EntityManagerHelper.class
+kamban/Section.class
 jpa/JpaTest.class
